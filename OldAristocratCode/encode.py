@@ -2,23 +2,24 @@ import random
 sen = "Did you know the the us flag is not red? So true!"
 global encSen
 encSen = ""
+n = random.randint(1,25)
+symb=[" ", ",", ".", "!", "?", ":", ";", "'"]
 def encode(sen):
-    n = random.randint(1,25)
     s = [*sen.lower()]
     def lOutput(x):
-        if x in [" ", ",", ".", "!", "?", ":", ";", "'"]:
+        if x in symb:
             return x
         else:
             return chr(ord('`')+x)
     def lInput(x):
-        if x in [" ", ",", ".", "!", "?", ":", ";", "'"]:
+        if x in symb:
             return x
         else:
             for i in range(1,27):
                 if chr(ord('`')+i) == x:
                     return i
     def overAlphabet(x,y):
-        if x in [" ", ",", ".", "!", "?", ":", ";", "'"]:
+        if x in symb:
             return x
         elif x + y > 26:
             return x+y-26
