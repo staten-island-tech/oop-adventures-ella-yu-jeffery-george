@@ -1,18 +1,22 @@
-import random
-global x
-class start():
-    def begin():
-        go=input("Are you ready to start? ").capitalize()
-        if go=='No':
-            print("Do you wanna restart?")
-        else:
-            print("You may now begin. Your code will be printed below")
-            za=['the fast monkey', 'the fat dog jumped', 'the lazy man sneezed', 'the dog meowed', 'no test too hard, no grade too low', 'no such thing as a bad quote']
-            x=print(random.choice(za))
-            g=input("").lower()
-            
-        if x==g:
-            print("Congrats!")
-        else:
-            print("Try again.")  
-    begin()
+class character_1:
+    def choice():
+        
+    #def A():
+    #    health= 1000
+    #    attack= 150
+
+    #def B():
+    #    health= 2000
+    #    attack= 50
+        
+    #def C():
+    #    health= 900
+    #    attack= 300
+        
+    #def D():
+    #    health= 1500
+    #    attack= 120
+        
+    #def E():
+    #    health= 1800
+    #    attack= 100
