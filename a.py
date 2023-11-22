@@ -1,22 +1,27 @@
-class character_1:
-    def choice():
-        
-    #def A():
-    #    health= 1000
-    #    attack= 150
+class character:
+    def create():
+        name=input("Enter character name: ")
 
-    #def B():
-    #    health= 2000
-    #    attack= 50
+        print("Choose one of the following base stats")
+        print("""
+        Character A:
+        health= 1000
+        attack= 150
+
+        Character B:
+        health= 2000
+        attack= 50
         
-    #def C():
-    #    health= 900
-    #    attack= 300
+        Character C:
+        health= 900
+        attack= 300
         
-    #def D():
-    #    health= 1500
-    #    attack= 120
+        Character  D:
+        health= 1500
+        attack= 120
         
-    #def E():
-    #    health= 1800
-    #    attack= 100
+        Character E:
+        health= 1800
+        attack= 100
+        """)
+    create()
