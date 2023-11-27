@@ -1,21 +1,34 @@
-class tal:
-    sets=[]
-    def talents():
-        one= print("Skill 1")
-        #("Attack increased  by 200%, current health is decreased by 50%")
-        #attack*2
-        #health/2
-        two= print("Skill 2")
-        #("Attack decreased by 50%, current health increased by 500")
-        #attack/2
-        #health+500
-        three= print("Skill 3")
-        #("Attack and current health increased by 150%")
-        #attack*1.5
-        #health*1.5
-        four= print("Skill 4")
-        #("Attack reduced to 1/3 of base, current health is increased by 200%")
-        #attack/3
-        #health*2
-        choose=input("Choose a skill: ").capitalize()
-    talents()
+import json
+import os
+class talents():
+    def skills(self,title,effect):
+        self.title= title
+        self.effect= effect
+        
+    def to_dict(self):
+        return {'title': title,
+                'effect': effect,        
+                 
+        }
+        
+with open("data.json", "r") as f:
+
+    data= json.load(f)
+    
+    title= input("Enter title of skill: ").capitalize()
+    effect= input("Enter effect: ").capitalize()
+
+    new_talents= talents()
+    talents.skills("self","title","effect")
+
+    new_talents_data= new_talents.to_dict()
+    data.append(new_talents_data)
+
+new_file = "updated.json"
+with open(new_file, "w") as f:
+    json_string = json.dumps(data, indent=2)
+
+    f.write(json_string)
+
+os.remove("data.json")
+os.rename(new_file, "data.json")

@@ -1,5 +1,5 @@
 class character:
-    def create():
+    def player():
         name=input("Enter character name: ")
 
         print("Choose one of the following base stats")
@@ -24,4 +24,4 @@ class character:
         health= 1800
         attack= 100
         """)
-    create()
+    player()
