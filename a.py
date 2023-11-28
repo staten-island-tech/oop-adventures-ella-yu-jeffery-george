@@ -1,27 +1,28 @@
 class character:
-    def player():
-        name=input("Enter character name: ")
-
-        print("Choose one of the following base stats")
-        print("""
-        Character A:
+    def __init__(self,name):
+        self.name= name
+    def stats(self, base):
+        print("Choose from the following stats:") 
+    print("Choose one of the following base stats")
+    print("""
+        Stat A:
         health= 1000
         attack= 150
 
-        Character B:
+        Stat B:
         health= 2000
         attack= 50
         
-        Character C:
+        Stat C:
         health= 900
         attack= 300
         
-        Character  D:
+        Stat  D:
         health= 1500
         attack= 120
         
-        Character E:
+        Stat E:
         health= 1800
         attack= 100
         """)
-    player()
+    choice=input("Enter here: ")
