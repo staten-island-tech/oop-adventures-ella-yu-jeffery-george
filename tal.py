@@ -3,5 +3,4 @@ class talents():
         self.title= title
     def add(self,effect,turns):
         self.effect=effect
-        self.turns=turns
         
