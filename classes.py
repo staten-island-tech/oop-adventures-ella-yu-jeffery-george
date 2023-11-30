@@ -18,5 +18,10 @@ class item(actions):
         self.attEffect = attEffect
         self.defEffect = defEffect
 
-Firethrower = attackingMove(0,240,"Firethrower AHHH IT BURNS",24,"FIRE")
-print(f"\"{Firethrower.name}\" stats: Attack DMG {Firethrower.attack}, Type {Firethrower.type}")
+response = input("What type of action do you want to make? actions, attackingMove, item: ").lower()
+print(response)
+theFirstOne = input("How much health should this heal for the player? ")
+theSecondOne = input("How much damage to the opponent should this deal for the opponent? ")
+theThirdOne = input("What's the name? ")
+if response == "action":
+    action = {(theThirdOne): {}}
