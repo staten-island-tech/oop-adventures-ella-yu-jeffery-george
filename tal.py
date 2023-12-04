@@ -1,8 +1,11 @@
 class talents():
-    def __init__(self,title,turns):
+    import random
+    turns=random.randint(3,5)
+    
+    def __init__(self,title,effect):
         self.title= title
-        self.effect=effect
+        self.effect= effect
     def gain(self,turns):
-        self.effect.add(turns)
+        self.title.add(turns)
         print(f"You have chosen the following talent: {effect}.It will be active after every {turns} turns.")
 
