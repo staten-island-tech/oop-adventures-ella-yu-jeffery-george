@@ -4,5 +4,10 @@ class base_character:
         self.numbers=numbers
         self.inventory=inventory
     def set_add(self,health, attack):
-        self.name.add(health, attack)
-        print(f"You have chosen the following stats: {health},{attack}")
+        self.numbers.append(health)
+        self.numbers.append(attack)
+        print(f"""You have chosen the following stats: 
+Health: {health} 
+Attack: {attack}
+
+""")

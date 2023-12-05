@@ -1,59 +1,58 @@
 import random
+from player import base_character
 def beninging():
     g=input("Would you like to play? Yes or No? ").capitalize()
     if g=="No":
         print("Ok")
     else:
         print("Build your character.")
-        
-        
+beninging()
+g=input("Enter name:")  
+              
 def creation():
-    from player import base_character
     print("""
-A:
 Health= 1000
 Attack= 150
 
-B:
 Health= 2000
 Attack= 50
         
-C:
 Health= 900
 Attack= 300
         
-D:
 Health= 1500
 Attack= 120
         
 """)
-me=base_character("Bob",[],[])
 
-go=input("Enter the stats of your choice: ").capitalize()
+creation()
 
-me.set_add(go)
-
-if go=="A":
-    print("Health 1000, attack 150")
-elif go=="B":
-    print("Health 2000, attack 50")
-elif go=="C":
-    print("Health 900, attack 300")
-else:
-    print("Health 1500, attack 200")
+me=base_character(g,[],[])
+h=int(input("Enter the health of your choice: "))
+a=int(input("Enter the attack of your choice: "))
+me.set_add(h,a)
 
 
 def creating():
     print("Here are all possible talents")    
     print("""
-One: health increase by 150% of base, attack decrease 20%
-Two: heath decreased by 20% of base, attack increase by 50%
-Three: health increase by 200% of base, cannot attack next 2 turns
-Four: health decrease by 50% attack increase by 130%
+Kit one: health increase by 150% of base, attack decrease 20%
+Kit two: heath decreased by 20% of base, attack increase by 50%
+Kit three: health increase by 200% of base, cannot attack next 2 turns
+Kit four: health decrease by 50% attack increase by 130%
 """)
-    skill_set=input("Choose a talent: ").lower
+    skill_set=input("Choose a kit: ").lower
+    
+if skill_set=="kit one":
+    skill_set.gain("Kit one", "Health increase by 150% of base, attack decrease 20%")
+elif skill_set=="kit two":
+    skill_set.gain("Kit two", "Heath decreased by 20% of base, attack increase by 50%")
+elif skill_set=="kit three":
+    skill_set.gain("Kit three", "Health increase by 200% of base, cannot attack next 2 turns")
+else:
+    skill_set.gain("Kit four", "Health decrease by 50% attack increase by 130%")
 #put the chosen stats into a list that can be changed
-
+creating()
 
 def adventure_time():
     print("Starting journey.")
