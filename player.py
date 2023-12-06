@@ -9,5 +9,4 @@ class base_character:
         print(f"""You have chosen the following stats: 
 Health: {health} 
 Attack: {attack}
-
 """)
