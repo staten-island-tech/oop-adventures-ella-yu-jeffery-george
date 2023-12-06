@@ -71,11 +71,15 @@ def adventure_time():
         if travel==travel:
             fight=[1,2,3,4,5,6,7,8]
             steps=random.randint(1,10)
+        safe=[9,10]
         if steps in fight:
             print("Enemy present")
         #import the opponent class
-        else:
+        elif steps in safe:
             print("Item found")
+        
+        else:
+            h=0 
     
     
 #Call all functions!
