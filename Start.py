@@ -1,7 +1,7 @@
 import random
 from player import base_character
 from tal import talents
-turns=globals
+global turns
 turns=random.randint(3,5)
 def beninging():
     g=input("Would you like to play? Yes or No? ").capitalize()
