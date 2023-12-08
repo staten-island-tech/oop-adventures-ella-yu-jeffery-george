@@ -1,7 +1,7 @@
 import random
 from player import base_character
 from tal import talents
-from newOpponentStats import oppnent
+
 global turns
 turns=random.randint(3,5)
 def beninging():
@@ -90,7 +90,7 @@ def adventure_time():
             
         if steps in fight:
             print("Enemy present")
-        #import the opponent class
+
         
         else:
             print("Item found")
