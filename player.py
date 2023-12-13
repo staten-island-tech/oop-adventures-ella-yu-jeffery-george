@@ -10,3 +10,13 @@ class base_character:
 Health: {health} 
 Attack: {attack}
 """)
+    def boost(self,label):
+        self.label=label
+        self.info=info
+    def use(self,boost):
+        self.use.append(boost)
+        Yipeeee=health+boost
+        print(Yipeeee)
+        
+    
+    
