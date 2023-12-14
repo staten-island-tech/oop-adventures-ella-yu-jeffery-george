@@ -9,14 +9,14 @@ class base_character:
         print(f"""You have chosen the following stats: 
 Health: {health} 
 Attack: {attack}
-""")
-    def boost(self,label):
-        self.label=label
-        self.info=info
-    def use(self,boost):
-        self.use.append(boost)
-        Yipeeee=health+boost
-        print(Yipeeee)
-        
+""")    
     
-    
+    class safe(base_character):
+        def __init__(self,name, numbers, inventory):
+            super().__init__(name, numbers, inventory)
+            self.label=label
+            self.safe.append(inventory)
+#        def use(self,boost):
+ #           self.use.append(boost)
+  #          Yipeeee=health+boost
+ #           print(Yipeeee)
