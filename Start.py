@@ -1,6 +1,7 @@
 import random
 from player import base_character
 from tal import talents
+from picky import picks
 global turns
 turns=random.randint(3,5)
 def beninging():
@@ -10,6 +11,7 @@ def beninging():
     else:
         print("Build your character.")
 beninging()
+
 g=input("Enter name:")  
               
 def BASE():
@@ -81,7 +83,7 @@ def adventure_time():
 
     travel=input("Which direction would you like to go? Left, right, up, down?").lower()
 #randomize enemy spawn depending on what direction is chosen
-    while h > 0:    
+    while  me(1) > 0:   #Issue 1  
         if travel==travel:
             fight=[1,2,3,4,5,6,7,8]
             steps=random.randint(1,10)
@@ -92,4 +94,7 @@ def adventure_time():
         #import the opponent class
         else:
             print("Item found")
+            print(random.choice(potions))
+            me=safe(potions)
         
+adventure_time()

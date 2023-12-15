@@ -1,5 +1,5 @@
 class base_character:
-    def __init__(self,name, numbers, inventory):
+    def __init__(self,name,numbers, inventory):
         self.name= name
         self.numbers=numbers
         self.inventory=inventory
@@ -11,12 +11,8 @@ Health: {health}
 Attack: {attack}
 """)    
     
-    class safe(base_character):
-        def __init__(self,name, numbers, inventory):
-            super().__init__(name, numbers, inventory)
-            self.label=label
-            self.safe.append(inventory)
-#        def use(self,boost):
- #           self.use.append(boost)
-  #          Yipeeee=health+boost
- #           print(Yipeeee)
+class safe(base_character):
+    def __init__(self,name, numbers, inventory):
+        super().__init__(name, numbers, inventory)
+        self.label=label
+        self.safe.append(inventory)
