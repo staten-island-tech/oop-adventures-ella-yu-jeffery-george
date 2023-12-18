@@ -9,5 +9,4 @@ class picks():
         potions.append(small_potion)
         potions.append(medium_potion)
         potions.append(large_potion)
-        
     drops()        
