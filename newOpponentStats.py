@@ -6,6 +6,4 @@ class opponent():
     #d is the difficulty, best from -5 to 5, with 0 being around the player's stats
         return [((-10*n/3)+2000+(100*d))/5//1*5,(1+d/10)*n]
     #first item is the health, second is the attack
-    print(f"Opponent health and attack {createNewOpponent(-5,n)}")
-    print(f"""Opponent health {createNewOpponent(-5)}
-          Opponent attack {createNewOpponent(n)}""")
+    #print(f"Opponent health and attack {createNewOpponent(-5,n)}")
