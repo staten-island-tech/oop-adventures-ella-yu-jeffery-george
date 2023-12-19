@@ -56,6 +56,3 @@ def move(x,y,mapName):
         print("That space is filled.")
     return mapName
 map = move(playerX,playerY,map)
-
-#JUST DELETE WEIRD CODE
->>>>>>> Stashed changes
