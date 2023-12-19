@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 global map
 map=['#####  ##',"#####  ##","###    ##","##     ##","##   ####","##       ","###      ","#######  "]
 def printMap(mapName):
@@ -7,7 +5,7 @@ def printMap(mapName):
         print(mapName[i])
 global playerX
 global playerY
-playerX=2
+playerX=5
 playerY=0
 def move(x,y,mapName):
     # x and y are the axis, as x increases it goes right and as y increases it goes down
