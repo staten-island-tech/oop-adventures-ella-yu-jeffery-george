@@ -4,8 +4,6 @@ from tal import talents
 from picky import picks
 from newOpponentStats import opponent
 global turns
-global user_health
-global user_attack
 
 turns=random.randint(3,5)
 
@@ -56,11 +54,11 @@ def adventure_time():
             me=safe(potions)
         else:
             print("Enemy present")
-            print(f"Opponent health and attack {createNewOpponent(-5,n)}")
+            
+            
 adventure_time()
 #choose attack or use item, after (turns) show skill allow them to use skill. 
 #if attack is chosen they attack equal to the current attack #, then opponent attacks, loop till someone hits 0
-<<<<<<< Updated upstream
 
 while user_health !=0:
     hom=input("Attack or use item?").lower()
@@ -74,7 +72,6 @@ while user_health !=0:
     elif hom== "item" or "use item":
         print(f"Health increased by {item}. Health:{health}")
         count=count+1
-        #go back to attack
         
     if count== turns:
         print("Skill active.")
@@ -92,38 +89,3 @@ while user_health !=0:
             mhp=opponent_health - user_attack
             print(f"Minus {attack}. Current health is {mhp} ")
             muhp=user_health - opponent_attack
-=======
-def attk():
-    while user_health !=0:
-        hom=input("Attack or use item?").lower()
-        count=1
-        if hom == "attack":
-        #mhp=opponent health - user_attack
-            print(f"Minus {user_attack}. Opponent health is {mhp} ")
-        #muhp=user_health - opponent attack
-            print(f"Minus {attack}. Current health is {mhp} ")
-            count=count+1
-        elif hom== "item" or "use item":
-            print(f"Health increased by {item}. Health:{health}")
-            count=count+1
-        #go back to attack
-        
-        if count== turns:
-            print("Skill active.")
-            ham=input("Attack or use item?").lower()
-            if ham=="attack":
-                ho=input("Normal attack or skill?").lower()
-            elif ho in "normal attack":
-                print(f"Minus {attack}. Opponent health is {mhp} ")
-        #mhp=opponent health - user attack
-                print(f"Minus {attack}. Current health is {mhp} ")
-        #muhp=user health - opponent attack
-            else:
-                print("nah")
-        #    print(f"Health changed to {#}, Attack changed to {#}")
-        #    print(f"Minus {attack}. Opponent health is {mhp} ")
-        #mhp=opponent health - user attack
-        #    print(f"Minus {attack}. Current health is {mhp} ")
-        #muhp=user health - opponent attack
-attk()
->>>>>>> Stashed changes
