@@ -3,7 +3,6 @@ from player import base_character
 from tal import talents
 from picky import picks
 from newOpponentStats import opponent
-
 global turns
 turns=random.randint(3,5)
 def creation():
@@ -14,6 +13,8 @@ def creation():
     basic=input("Enter your chosen set with health being the first value and attack being the second, enter only the letter.").lower()
     if basic in sets:
         me.set_add(*sets[basic])
+        global user_health
+        global user_attack
         user_health = sets[basic][0]
         user_attack = sets[basic][1]
     else:
@@ -59,9 +60,9 @@ while user_health !=0:
     hom=input("Attack or use item?").lower()
     count=1
     if hom == "attack":
-        #mhp=opponent health - user_attack
+        mhp=opponent_health - user_attack
         print(f"Minus {user_attack}. Opponent health is {mhp} ")
-        #muhp=user_health - opponent attack
+        muhp=user_health - opponent_attack
         print(f"Minus {attack}. Current health is {mhp} ")
         count=count+1
     elif hom== "item" or "use item":
@@ -76,12 +77,12 @@ while user_health !=0:
             ho=input("Normal attack or skill?").lower()
         elif ho in "normal attack":
             print(f"Minus {attack}. Opponent health is {mhp} ")
-        #mhp=opponent health - user attack
+            mhp=opponent_health - user_attack
             print(f"Minus {attack}. Current health is {mhp} ")
-        #muhp=user health - opponent attack
+            muhp=user_health - opponent_attack
         else:
-            print(f"Health changed to {#}, Attack changed to {#}")
+            print(f"Health changed to {a}, Attack changed to {b}")
             print(f"Minus {attack}. Opponent health is {mhp} ")
-        #mhp=opponent health - user attack
+            mhp=opponent_health - user_attack
             print(f"Minus {attack}. Current health is {mhp} ")
-        #muhp=user health - opponent attack
+            muhp=user_health - opponent_attack
