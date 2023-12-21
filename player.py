@@ -10,3 +10,4 @@ class base_character:
 Health: {health} 
 Attack: {attack}
 """)    
+     

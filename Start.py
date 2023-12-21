@@ -3,6 +3,7 @@ from player import base_character
 from tal import talents
 from picky import picks
 global turns
+global sets
 
 turns=random.randint(3,5)
 
@@ -40,7 +41,7 @@ creating()
 def adventure_time():
     print("Starting journey.")
     
-    travel=input("Which direction would you like to go? Left, right, up, down?").lower()
+    travel=input("Which direction would you like to go? Used W,A,S,D").lower()
     while  user_health != 0:
         if travel==travel:
             fight=[1,2,3,4,5,6,7,8]
@@ -53,7 +54,6 @@ def adventure_time():
             me=safe(potions)
         else:
             print("Enemy present")
-            print(f"Opponent health and attack {createNewOpponent(-5,n)}")
 adventure_time()
 #choose attack or use item, after (turns) show skill allow them to use skill. 
 #if attack is chosen they attack equal to the current attack #, then opponent attacks, loop till someone hits 0
@@ -62,9 +62,9 @@ def attk():
         hom=input("Attack or use item?").lower()
         count=1
         if hom == "attack":
-        #mhp=opponent health - user_attack
+            mhp=opponent_health - user_attack
             print(f"Minus {user_attack}. Opponent health is {mhp} ")
-        #muhp=user_health - opponent attack
+            muhp=user_health - opponent_attack
             print(f"Minus {attack}. Current health is {mhp} ")
             count=count+1
         elif hom== "item" or "use item":
@@ -79,14 +79,14 @@ def attk():
                 ho=input("Normal attack or skill?").lower()
             elif ho in "normal attack":
                 print(f"Minus {attack}. Opponent health is {mhp} ")
-        #mhp=opponent health - user attack
+                mhp=opponent_health - user_attack
                 print(f"Minus {attack}. Current health is {mhp} ")
-        #muhp=user health - opponent attack
+                muhp=user_attack - opponent_attack
             else:
                 print("nah")
-        #    print(f"Health changed to {#}, Attack changed to {#}")
-        #    print(f"Minus {attack}. Opponent health is {mhp} ")
-        #mhp=opponent health - user attack
-        #    print(f"Minus {attack}. Current health is {mhp} ")
-        #muhp=user health - opponent attack
+            #print(f"Health changed to {#}, Attack changed to {#}")
+            #print(f"Minus {attack}. Opponent health is {mhp} ")
+            #mhp=opponent_health - user_attack
+            #print(f"Minus {attack}. Current health is {mhp} ")
+            #muhp=user_health - opponent_attack
 attk()
