@@ -1,27 +1,27 @@
 global map
-map=["            ##,---,#","            ##| W |#","########    ##|ASD|#","#######     ##'---'#","###         ########","##         #########","##   #      ########","#   ###       ######","#  ####   #    #####","#    ##   ##   #####","#    ###   #    ####","##   ####       ####","###########      ###","############      ##","############      ##","########           #","#####              #","####              ##","        ####     ###","        #####    ###","####    ############"]
+map=["            ##,---,#","            ##| W |#","   #####    ##|ASD|#","#######     ##'---'#","###         ########","##         #########","##   #       ###  ##","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","#     ######    ####","##    ######    ####","###########      ###","####    ####      ##","###      ###      ##","###                #","#####              #","####     ##       ##","###     ####     ###","###              ###","######        ######"]
+map[10] == map[10] + "OIDFSJOJDFOSIJOSDIFODSJFODSF"
 def printMap(mapName):
     for i in range(len(mapName)):
         print(mapName[i])
-global playerX
-global playerY
-playerX=0
-playerY=0
+def repeatedCodeLol(xORy,x,y,theMap,plusOrMinusOne):
+    theMap[10] = theMap[10][:len(theMap[0])]
+    if xORy == "y":
+        theMap[y] = (theMap[y][:x]+"|"+theMap[y][(x+1):])
+        theMap[y+plusOrMinusOne] = (theMap[y+plusOrMinusOne][:x]+"O"+theMap[y+plusOrMinusOne][(x+1):])
+    elif xORy == "x":
+        theMap[y] = (theMap[y][:x]+"-"+theMap[y][(x+1):])
+        theMap[y] = (theMap[y][:(x+plusOrMinusOne)]+"O"+theMap[y][(x+1+plusOrMinusOne):])
+    else:
+        print("-----------\nCheck the code. The xORy variable is wrong.\n=======")
+playerX=1
+playerY=1
 def move(x,y,mapName):
     # x and y are the axis, as x increases it goes right and as y increases it goes down
     if mapName[y][x] == " ":
         b = mapName[y]
         mapName[y] = (b[:x]+"O"+b[(x+1):])
         printMap(mapName)
-        def repeatedCodeLol(xORy,x,y,theMap,plusOrMinusOne):
-            if xORy == "y":
-                theMap[y] = (theMap[y][:x]+"|"+theMap[y][(x+1):])
-                theMap[y+plusOrMinusOne] = (theMap[y+plusOrMinusOne][:x]+"O"+theMap[y+plusOrMinusOne][(x+1):])
-            elif xORy == "x":
-                theMap[y] = (theMap[y][:x]+"-"+theMap[y][(x+1):])
-                theMap[y] = (theMap[y][:(x+plusOrMinusOne)]+"O"+theMap[y][(x+1+plusOrMinusOne):])
-            else:
-                print("-----------\nCheck the code. The xORy variable is wrong.\n=======")
         while True:
             direction = input("Input the keys w,a,s,d, or input the word exit: ")
             if direction == "exit":
