@@ -1,11 +1,11 @@
 global map
-map=['#####  ##',"#####  ##","###    ##","##     ##","##   ####","##       ","###      ","#######  "]
+map=["            ##,---,#","            ##| W |#","########    ##|ASD|#","#######     ##'---'#","###         ########","##         #########","##   #      ########","#   ###       ######","#  ####   #    #####","#    ##   ##   #####","#    ###   #    ####","##   ####       ####","###########      ###","############      ##","############      ##","########           #","#####              #","####              ##","        ####     ###","        #####    ###","####    ############"]
 def printMap(mapName):
     for i in range(len(mapName)):
         print(mapName[i])
 global playerX
 global playerY
-playerX=5
+playerX=0
 playerY=0
 def move(x,y,mapName):
     # x and y are the axis, as x increases it goes right and as y increases it goes down
@@ -14,10 +14,11 @@ def move(x,y,mapName):
         mapName[y] = (b[:x]+"O"+b[(x+1):])
         printMap(mapName)
         def repeatedCodeLol(xORy,x,y,theMap,plusOrMinusOne):
-            theMap[y] = (theMap[y][:x]+" "+theMap[y][(x+1):])
             if xORy == "y":
+                theMap[y] = (theMap[y][:x]+"|"+theMap[y][(x+1):])
                 theMap[y+plusOrMinusOne] = (theMap[y+plusOrMinusOne][:x]+"O"+theMap[y+plusOrMinusOne][(x+1):])
             elif xORy == "x":
+                theMap[y] = (theMap[y][:x]+"-"+theMap[y][(x+1):])
                 theMap[y] = (theMap[y][:(x+plusOrMinusOne)]+"O"+theMap[y][(x+1+plusOrMinusOne):])
             else:
                 print("-----------\nCheck the code. The xORy variable is wrong.\n=======")
@@ -32,7 +33,7 @@ def move(x,y,mapName):
                     repeatedCodeLol("y",x,y,mapName,-1)
                     y = y-1
             elif direction == "s":
-                if y == 7 or mapName[y+1][x] == "#":
+                if y == 20 or mapName[y+1][x] == "#":
                     print("That direction goes nowhere.")
                 else:
                     repeatedCodeLol("y",x,y,mapName,1)
@@ -44,7 +45,7 @@ def move(x,y,mapName):
                     repeatedCodeLol("x",x,y,mapName,-1)
                     x = x - 1
             elif direction == "d":
-                if x == 8 or mapName[y][x+1] == "#":
+                if x == 19 or mapName[y][x+1] == "#":
                     print("That direction goes nowhere.")
                 else:
                     repeatedCodeLol("x",x,y,mapName,1)
