@@ -2,7 +2,10 @@ import random
 from player import base_character
 from tal import talents
 from picky import picks
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 global user_health
 global user_attack
 global turns
@@ -25,9 +28,15 @@ creation()
 def creating():
     more=talents([])
     kits= {"one": "Health increase by 50% of base attack decrease 20%",
+<<<<<<< Updated upstream
             "two": "Heath decreased by 20% of base, attack increase by 50%",
             "three": "Health increase by 100% of base cannot attack next 2 turns",
             "four": "Health decrease by 50% attack increase by 130%"}
+=======
+                 "two": "Heath decreased by 20% of base, attack increase by 50%",
+                 "three": "Health increase by 100% of base cannot attack next 2 turns",
+                 "four": "Health decrease by 50% attack increase by 130%"}
+>>>>>>> Stashed changes
     print(kits)
     skill_set=input("Choose a kit number:").lower()   
 
@@ -38,6 +47,7 @@ def creating():
 
 creating()
 
+<<<<<<< Updated upstream
 def adventure_time():
     print("Starting journey.")
 
@@ -79,3 +89,7 @@ while user_health !=0:
         if ham=="attack":
             ho=input("Normal attack or skill?").lower()
  
+=======
+while user_health !=0:
+    print("OK")
+>>>>>>> Stashed changes
