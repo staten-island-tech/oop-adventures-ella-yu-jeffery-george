@@ -6,6 +6,7 @@ global user_health
 global user_attack
 global turns
 global sets
+from newOpponentStats import opponent
 
 turns=random.randint(3,5)
 
@@ -27,7 +28,6 @@ creation()
 
 def creating():
     more=talents([])
-
     kits= {"1": "Health increase by 50% of base attack decrease 20%",
                  "2": "Heath decreased by 20% of base, attack increase by 50%",
                  "3": "Health increase by 100% of base cannot attack next 2 turns",
@@ -55,11 +55,6 @@ def adventure_time():
             print(shiny.drops(1, 2, 3))
         else:
             print("Enemy present")
-adventure_time()
-#choose attack or use item, after (turns) show skill allow them to use skill. 
-#if attack is chosen they attack equal to the current attack #, then opponent attacks, loop till someone hits 0
-def attk():
-    while user_health !=0:
         hom=input("Attack or use item?").lower()
         count=1
         if hom == "attack":
@@ -92,5 +87,4 @@ def attk():
             #mhp=opponent_health - user_attack
             #print(f"Minus {attack}. Current health is {mhp} ")
             #muhp=user_health - opponent_attack
-attk()
 
