@@ -2,15 +2,8 @@ import random
 from player import base_character
 from tal import talents
 from picky import picks
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 global user_health
 global user_attack
-=======
->>>>>>> 6b7176f42f20be925e602865b174e183b68966ff
 global turns
 global sets
 
@@ -52,16 +45,14 @@ def adventure_time():
     print("Starting journey.")
     
     travel=input("Which direction would you like to go? Used W,A,S,D").lower()
-    while  user_health != 0:
+    shiny=picks()
+    while user_health != 0:
         if travel==travel:
             fight=[1,2,3,4,5,6,7,8]
             steps=random.randint(1,10)
-            safe=[9,10]
-            
         if steps not in fight:
             print("Item found")
-            print(random.choice(potions))
-            me=safe(potions)
+            print(shiny.drops(1, 2, 3))
         else:
             print("Enemy present")
 adventure_time()

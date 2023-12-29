@@ -7,4 +7,4 @@ class picks():
         potions={"small": 200, "medium": 500, "large": 800}
         
         picked= random.choice(list(potions.keys()))
-        return f"Item found: {picked} potion. Replenishes {potions[picked]} health"
+        return f"Item found: {picked} potion. Replenishes {potions[picked]} health when used."
