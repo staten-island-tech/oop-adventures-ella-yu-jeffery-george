@@ -86,10 +86,5 @@ def adventure_time():
                         muhp=user_attack - opponent_attack
                 else:
                     print("nah")
-            #print(f"Health changed to {#}, Attack changed to {#}")
-            #print(f"Minus {attack}. Opponent health is {mhp} ")
-            #mhp=opponent_health - user_attack
-            #print(f"Minus {attack}. Current health is {mhp} ")
-            #muhp=user_health - opponent_attack 
 
 adventure_time()
