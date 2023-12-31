@@ -65,6 +65,8 @@ def adventure_time():
     shiny=picks()
     fighty=opponent()
     count=0
+    count1=0
+    count2=0
 
     while user_health > 0:
         travel=input("Which direction would you like to go? Used W,A,S,D").lower()
@@ -87,15 +89,23 @@ def adventure_time():
      
             while opponent_health > 0:
                 hom=input("Attack or use item?").lower()
+                count+=1
             
                 if hom == "attack":
-                    count+=1
-                    print(f"Turn {count}")
-                    mhp=opponent_health - user_attack
-                    print(f"Minus {user_attack} HP. Opponent health is now {mhp} ")
-                    print("Enemy turn")
-                    muhp=user_health - opponent_attack
-                    print(f"Minus {opponent_attack} HP. Current health is {muhp} ")
+                    while opponent_health>0:
+                        count1+=1
+                        opponent_health-=user_attack
+                        if opponent_health <= 0:
+                            break 
+                    while user_health>0:
+                        count2+=1
+                        user_health-=opponent_attack
+                        if user_health <=0:
+                            break 
+                    if count1<count2:
+                        print("Next round")
+                    else:
+                        print("You loose")
 
                     if count%turns==0:
                         print("Skills avaiable.")
@@ -104,20 +114,44 @@ def adventure_time():
                         if ham =="skill":
                             user_health, user_attack, ho = creating()
                             print(f"Stats updated:\nHealth: {user_health}\nAttack: {user_attack}")
-                            print(f"Minus {user_attack} HP. Opponent health is now {mhp} ")
-                            print("Enemy turn")
-                            muhp=user_health - opponent_attack
-                            print(f"Minus {opponent_attack} HP. Current health is {muhp} ")
+                            while opponent_health>0:
+                                count1+=1
+                                opponent_health-=user_attack
+                                if opponent_health <= 0:
+                                    break 
+                            while user_health>0:
+                                count2+=1
+                                user_health-=opponent_attack
+                                if user_health <=0:
+                                    break 
+                            if count1<count2:
+                                print("Next round")
+                            elif count1>count2:
+                                print("You loose")
 
                         elif ham == "attack":
-                            print(f"Minus {user_attack}. Opponent health is {mhp} ")
-                            mhp=opponent_health - user_attack
-                            print(f"Minus {user_attack}. Current health is {mhp} ")
-                            muhp=user_attack - opponent_attack
-                            
+                            while opponent_health>0:
+                                count1+=1
+                                opponent_health-=user_attack
+                                if opponent_health <= 0:
+                                    break 
+                            while user_health>0:
+                                count2+=1
+                                user_health-=opponent_attack
+                                if user_health <=0:
+                                    break 
+                            if count1>count2:
+                                print("Next round")
+                            elif count1<count2:
+                                print("You loose")
                         else:
                             print("Which item do you wanna use?")
 
-adventure_time()
+creation()
+while True:
+    adventure_time()
+    againy= input("Do you want to play again? Yes or no?").lower()
+    if againy =="no":
+        break
 
 
