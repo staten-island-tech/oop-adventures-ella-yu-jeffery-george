@@ -61,97 +61,95 @@ def adventure_time():
     global ho
 
     print("Starting journey.")
-    
-    shiny=picks()
-    fighty=opponent()
-    count=0
-    count1=0
-    count2=0
 
-    while user_health > 0:
-        travel=input("Which direction would you like to go? Used W,A,S,D").lower()
-        if travel==travel:
+    while True:
+        HEH=user_health
+        count=0
+        count1=0
+        count2=0
+        shiny=picks()
+        fighty=opponent()
+
+        while HEH > 0:
+            travel=input("Which direction would you like to go? Use W,A,S,D to move, use stop to end the game.").lower()
+            if travel =="stop":
+                print("Bye.")
+                break
+
             fight=[1,2,3]
             steps=random.randint(1,5)
 
-        if steps not in fight:
-            print("Item found")
-            print(shiny.drops(1, 2, 3))
-        else:
-            print("Enemy present")
-            n = random.randint(1,60)*5
-            stats= fighty.createNewOpponent(-5, n)
-            opponent_health=stats[0]
-            opponent_attack=stats[1]
-            print(f"""Oppoenent has the following stats,
-    Health:{opponent_health} 
-    Attack:{opponent_attack}""")
-     
-            while opponent_health > 0:
-                hom=input("Attack or use item?").lower()
-                count+=1
-            
-                if hom == "attack":
-                    while opponent_health>0:
-                        count1+=1
-                        opponent_health-=user_attack
-                        if opponent_health <= 0:
-                            break 
-                    while user_health>0:
-                        count2+=1
-                        user_health-=opponent_attack
-                        if user_health <=0:
-                            break 
-                    if count1<count2:
-                        print("Next round")
-                    else:
-                        print("You loose")
+            if steps not in fight:
+                print("Item found")
+                print(shiny.drops(1, 2, 3))
+            else:
+                print("Enemy present")
+                n = random.randint(1,60)*5
+                stats= fighty.createNewOpponent(-5, n)
+                opponent_health=stats[0]
+                opponent_attack=stats[1]
+                print(f"""Oppoenent has the following stats,
+        Health:{opponent_health} 
+        Attack:{opponent_attack}""")
+        
+                while opponent_health > 0:
+                    hom=input("Attack or use item?").lower()
+                    count+=1
 
-                    if count%turns==0:
-                        print("Skills avaiable.")
-                        ham=input("Attack, skill or use item?").lower()
-                
-                        if ham =="skill":
-                            user_health, user_attack, ho = creating()
-                            print(f"Stats updated:\nHealth: {user_health}\nAttack: {user_attack}")
-                            while opponent_health>0:
-                                count1+=1
-                                opponent_health-=user_attack
-                                if opponent_health <= 0:
-                                    break 
-                            while user_health>0:
-                                count2+=1
-                                user_health-=opponent_attack
-                                if user_health <=0:
-                                    break 
-                            if count1<count2:
-                                print("Next round")
-                            elif count1>count2:
-                                print("You loose")
-
-                        elif ham == "attack":
-                            while opponent_health>0:
-                                count1+=1
-                                opponent_health-=user_attack
-                                if opponent_health <= 0:
-                                    break 
-                            while user_health>0:
-                                count2+=1
-                                user_health-=opponent_attack
-                                if user_health <=0:
-                                    break 
-                            if count1>count2:
-                                print("Next round")
-                            elif count1<count2:
-                                print("You loose")
+                    if hom == "attack":
+                        while opponent_health>0:
+                            count1+=1
+                            opponent_health-=user_attack
+                            if opponent_health <= 0:
+                                break 
+                        while HEH>0:
+                            count2+=1
+                            HEH-=opponent_attack
+                            if HEH <=0:
+                                break 
+                        if count1<count2:
+                            print("Next round")
                         else:
-                            print("Which item do you wanna use?")
+                            print("You loose")
 
+                        if count%turns==0:
+                            print("Skills avaiable.")
+                            ham=input("Attack, skill or use item?").lower()
+                    
+                            if ham =="skill":
+                                user_health, user_attack, ho = creating()
+                                print(f"Stats updated:\nHealth: {user_health}\nAttack: {user_attack}")
+                                while opponent_health>0:
+                                    count1+=1
+                                    opponent_health-=user_attack
+                                    if opponent_health <= 0:
+                                        break 
+                                while user_health>0:
+                                    count2+=1
+                                    user_health-=opponent_attack
+                                    if user_health <=0:
+                                        break 
+                                if count1<count2:
+                                    print("Next round")
+                                else:
+                                    print("You loose")
+
+                            elif ham == "attack":
+                                while opponent_health>0:
+                                    count1+=1
+                                    opponent_health-=user_attack
+                                    if opponent_health <= 0:
+                                        break 
+                                while user_health>0:
+                                    count2+=1
+                                    user_health-=opponent_attack
+                                    if user_health <=0:
+                                        break 
+                                if count1>count2:
+                                    print("Next round")
+                                else:
+                                    print("You loose")
+                            else:
+                                print("Which item do you wanna use?")
 creation()
-while True:
-    adventure_time()
-    againy= input("Do you want to play again? Yes or no?").lower()
-    if againy =="no":
-        break
-
-
+adventure_time()
