@@ -11,7 +11,7 @@ turns=random.randint(3,5)
 def creation():
     g=input("Enter your name: ")
     me=base_character(g,[],[])
-    sets = {"a": (1000,150), "b":(2000,50), "c":(900,300), "d":(15000,120)}
+    sets = {"a": (1000,150), "b":(2000,50), "c":(900,300), "d":(1500,120)}
     print(sets)
     basic=input("Enter your chosen set, enter only the letter.").lower()
     if basic in sets:
