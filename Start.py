@@ -93,3 +93,5 @@ def adventure_time():
             #muhp=user_health - opponent_attack 
 
 adventure_time()
+
+print("no")
