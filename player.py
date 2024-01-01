@@ -12,9 +12,9 @@ class base_character:
 Health: {health} 
 Attack: {attack}
 """)
-    def add_item(self, item):
-        self.inventory.append(item)
-        print(f"Added to inventory. {item}")
+    def add_item(self, picked):
+        self.inventory.append(picked)
+        print(f"Added to inventory. {picked}")
 
 class picks():
     def drops(self, small,medium,large):
@@ -25,8 +25,8 @@ class picks():
         
         picked= random.choice(list(potions.keys()))
         return f"Item found: {picked} potion. Replenishes {potions[picked]} health"
-    
-    def use_potions(user_health):
+    @staticmethod
+    def use_potions(self, user_health):
         hpp=input("Which potion would you like to use? small, medium or large?").lower()
         if hpp=="small":
             user_health+=200
