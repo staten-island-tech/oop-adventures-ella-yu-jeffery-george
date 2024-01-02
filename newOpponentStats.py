@@ -7,3 +7,4 @@ class opponent():
         return [((-10*n/3)+2000+(100*d))/5//1*5,(1+d/10)*n*2]
     #first item is the health, second is the attack
     #print(f"Opponent health and attack {createNewOpponent(-5,n)}")
+    

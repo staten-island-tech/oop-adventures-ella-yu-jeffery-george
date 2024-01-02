@@ -120,7 +120,7 @@ def run():
                 else:
                     print("Enemy present")
                     n = random.randint(1,60)*5
-                    stats= fighty.createNewOpponent(-5, n)
+                    stats= fighty.createNewOpponent(-5,n)
                     opponent_health=stats[0]
                     opponent_attack=stats[1]
                     print(f"""Opponent has the following stats,
