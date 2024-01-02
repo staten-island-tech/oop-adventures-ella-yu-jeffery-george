@@ -1,5 +1,5 @@
 import random
-sen = "Did you know the the us flag is not red? So true!"
+sen = ""
 global encSen
 encSen = ""
 n = random.randint(1,25)
