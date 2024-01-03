@@ -3,6 +3,7 @@ from player import base_character
 from tal import talents
 from picky import picks
 from newOpponentStats import opponent
+from attack import attk
 
 def run():
     global user_health
@@ -76,8 +77,16 @@ def run():
             print("Battle results\nSuccess! Next round!")
         elif hits1>hits2:
             print("Battle results\nYou loose! Try again.")
-        else:
+        elif hits1==hits2:
             print("Battle results\nDraw!")
+            k=input("Flee or keep fighting?").lower()
+            if k=="flee":
+                flee=random.randint(1,2)
+                bounce=[1]
+                if flee==bounce:
+                    print("Successfully fled battle")
+                else:
+                    input("Escape failed!")
 
 
     def adventure_time():
