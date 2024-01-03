@@ -1,1 +1,0 @@
-from newOpponentStats import opponent

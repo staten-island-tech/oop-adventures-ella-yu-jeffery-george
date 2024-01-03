@@ -1,9 +1,6 @@
 global map
 map=["            ##,---,#","            ##| W |#","   #####    ##|ASD|#","#######     ##'---'#","###         ########","##         #########","##   #       ###  ##","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","#     ######    ####","##    ######    ####","###########      ###","####    ####      ##","###      ###      ##","###                #","#####              #","####     ##       ##","###     ####     ###","###              ###","######        ######"]
 map[10] == map[10] + "OIDFSJOJDFOSIJOSDIFODSJFODSF"
-def printMap(mapName):
-    for i in range(len(mapName)):
-        print(mapName[i])
 def repeatedCodeLol(xORy,x,y,theMap,plusOrMinusOne):
     theMap[10] = theMap[10][:len(theMap[0])]
     if xORy == "y":
@@ -21,7 +18,8 @@ def move(x,y,mapName):
     if mapName[y][x] == " ":
         b = mapName[y]
         mapName[y] = (b[:x]+"O"+b[(x+1):])
-        printMap(mapName)
+        for i in range(len(mapName)):
+            print(mapName[i])
         while True:
             direction = input("Input the keys w,a,s,d, or input the word exit: ")
             if direction == "exit":
@@ -52,7 +50,8 @@ def move(x,y,mapName):
                     x = x + 1
             else:
                 print("wrong syntax lol")
-            printMap(mapName)
+            for i in range(len(mapName)):
+                print(mapName[i])
     else:
         print("That space is filled.")
     return mapName
