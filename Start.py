@@ -3,6 +3,7 @@ from player import base_character
 from tal import talents
 from picky import picks
 from newOpponentStats import opponent
+from newOpponentStats import boss
 from attack import attk
 
 def run():
@@ -52,41 +53,41 @@ def run():
             print("Kit number not found.")
             return user_health, user_attack, ho
 
-    def hitty():
-        global user_health
-        global user_attack
-        global opponent_health
-        global opponent_attack
-        global count
-        global hits1
-        global hits2
-        global HEH
+    #def hitty():
+    #    global user_health
+    #    global user_attack
+    #    global opponent_health
+    #    global opponent_attack
+    #    global count
+    #    global hits1
+    #    global hits2
+    #    global HEH
 
-        while opponent_health>0:
-            hits1+=1
-            opponent_health-=user_attack
-            if opponent_health <= 0:
-                break 
-        while HEH>0:
-            hits2+=1
-            HEH-=opponent_attack
-            if HEH <=0:
-                break 
+        #while opponent_health>0:
+            #hits1+=1
+            #opponent_health-=user_attack
+            #if opponent_health <= 0:
+                #break 
+        #while HEH>0:
+            #hits2+=1
+            #HEH-=opponent_attack
+            #if HEH <=0:
+            #    break 
 
-        if hits1<hits2:
-            print("Battle results\nSuccess! Next round!")
-        elif hits1>hits2:
-            print("Battle results\nYou loose! Try again.")
-        elif hits1==hits2:
-            print("Battle results\nDraw!")
-            k=input("Flee or keep fighting?").lower()
-            if k=="flee":
-                flee=random.randint(1,2)
-                bounce=[1]
-                if flee==bounce:
-                    print("Successfully fled battle")
-                else:
-                    input("Escape failed!")
+        #if hits1<hits2:
+            #print("Battle results\nSuccess! Next round!")
+        #elif hits1>hits2:
+            #print("Battle results\nYou loose! Try again.")
+        #elif hits1==hits2:
+            #print("Battle results\nDraw!")
+            #k=input("Flee or keep fighting?").lower()
+            #if k=="flee":
+                #flee=random.randint(1,2)
+                #bounce=[1]
+                #if flee==bounce:
+                    #print("Successfully fled battle")
+                #else:
+                #input("Escape failed!")
 
 
     def adventure_time():
@@ -109,6 +110,7 @@ def run():
             hits2=0
             shiny=picks()
             fighty=opponent()
+            loosey=boss()
 
             while HEH > 0:
                 travel=input("Which direction would you like to go? Use W,A,S,D to move, use stop to end the game.").lower()
@@ -165,6 +167,10 @@ def run():
                             print (me.inventory)
                             user_health=picks.use_potions(user_health)
                             print(f"Health is now {user_health}")
+            if count==20:
+                 print("Boss Present")
+                 
+                 
 
 
     creation()

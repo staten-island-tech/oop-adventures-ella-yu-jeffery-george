@@ -26,3 +26,11 @@ class attk:
             print("Battle results\nYou loose! Try again.")
         else:
             print("Battle results\nDraw!")
+            k= input("Would you like to flee or fight?").lower()
+            if k=="flee":
+                m=["Flee successful", "Flee failed"]
+                b=print(random.choice(m))
+                if b=="Flee successful":
+                    print("Continue with the movement.")
+                else:
+                    print("Fight occurs again")
