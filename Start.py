@@ -2,6 +2,7 @@ import random
 from player import base_character
 from tal import talents
 from picky import picks
+import movement
 global user_health
 global user_attack
 global turns
@@ -110,27 +111,24 @@ def run():
                 if travel =="stop":
                     print("Bye.")
                     break
-                else:
-                    count+=1 
-                    print(f"Turn {count}")
 
                 item=[1,2,3,4]
                 fight=[1,2]
                 steps=random.randint(1,5)
                 
                 if steps not in item:
-                    print("Item found")
+                    print("\n -{ Item found! }- \n")
                     item=shiny.drops(1, 2, 3)
                     me.add_item(item)
                 if steps in fight:
-                    print("Enemy present")
+                    print("\n -{ Enemy present. }- \n")
                     n = random.randint(1,60)*5
                     stats= fighty.createNewOpponent(-5, n)
                     opponent_health=stats[0]
                     opponent_attack=stats[1]
-                    print(f"""Opponent has the following stats,
-            Health:{opponent_health} 
-            Attack:{opponent_attack}""")
+                    print(f"""Opponent has the following stats: 
+                    Health:{opponent_health} 
+                    Attack:{opponent_attack}""")
             
                     while opponent_health > 0:
                         hom=input("Attack or use item?").lower()
