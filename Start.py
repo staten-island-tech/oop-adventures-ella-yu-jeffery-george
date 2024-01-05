@@ -110,14 +110,15 @@ def run():
                     count+=1 
                     print(f"Turn {count}")
 
-                fight=[1,2,3,4]
+                item=[1,2,3,4]
+                fight=[1,2]
                 steps=random.randint(1,5)
                 
-                if steps not in fight:
+                if steps not in item:
                     print("Item found")
                     item=shiny.drops(1, 2, 3)
                     me.add_item(item)
-                else:
+                if steps in fight:
                     print("Enemy present")
                     n = random.randint(1,60)*5
                     stats= fighty.createNewOpponent(-5, n)
