@@ -12,3 +12,4 @@ x = opponent.createNewOpponent(0)[0]
 y = opponent.createNewOpponent(0)[1]
 print(x,y)
 
+

@@ -2,6 +2,10 @@ import random
 from player import base_character
 from tal import talents
 from picky import picks
+global user_health
+global user_attack
+global turns
+global sets
 from newOpponentStats import opponent
 
 def run():
@@ -162,4 +166,3 @@ def run():
     creation()
     adventure_time()
 run()
-
