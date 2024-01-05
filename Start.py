@@ -136,7 +136,7 @@ def run():
                             print (me.inventory)
                             user_health=picks.use_potions(user_health)
                             print(f"Health is now {user_health}")
-
+#Fix the turn counting
                     if count%turns==0 and hits1<hits2:
                         print("Skills avaiable.")
                         ham=input("Attack, skill or use item?").lower()
