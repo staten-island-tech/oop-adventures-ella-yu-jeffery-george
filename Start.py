@@ -1,3 +1,5 @@
+
+import math
 import random
 from player import base_character
 from tal import talents
@@ -91,6 +93,8 @@ def run():
         global opponent_health
         global opponent_attack
         global ho
+        global map
+        map=["           ###,---,#","            ##| W |#   Turn 00","   #####    ##|ASD|#  /‾‾‾‾‾‾‾\ ","#######     ##'---'#","###         ########","##         ######  #","##   #       ###   #","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","##    ######    ####","##   #######    ####","###########      ###"]
 
         print("Starting journey.")
         global count
