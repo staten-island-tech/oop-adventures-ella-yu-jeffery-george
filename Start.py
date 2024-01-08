@@ -2,89 +2,55 @@ import random
 from player import base_character
 from tal import talents
 from picky import picks
-global user_health
-global user_attack
-global turns
-global sets
 from newOpponentStats import opponent
+from newOpponentStats import boss
+from attack import attck
 
-turns=random.randint(3,5)
+def run():
+    global user_health
+    global user_attack
+    global me
+    turns=random.randint(2,4)
 
-def creation():
-    g=input("Enter your name: ")
-    me=base_character(g,[],[])
-    sets = {"a": (1000,150), "b":(2000,50), "c":(900,300), "d":(15000,120)}
-    print(sets)
-    basic=input("Enter your chosen set, enter only the letter.").lower()
-    if basic in sets:
-        me.set_add(*sets[basic])
+    def creation():
         global user_health
         global user_attack
-        user_health = sets[basic][0]
-        user_attack = sets[basic][1]  
-    else:
-        print("Set Choice not found.")
-creation()
-
-def creating():
-    more=talents([])
-    kits= {"1": "Health increase by 50% of base attack decrease 20%",
-                 "2": "Heath decreased by 20% of base, attack increase by 50%",
-                 "3": "Health increase by 100% of base cannot attack next 2 turns",
-                 "4": "Health decrease by 50% attack increase by 130%"}
-    print(kits)
-    skill_set=input("Choose a kit number:").lower()   
-
-    if skill_set in kits:
-        more.gain(kits[skill_set],turns)
-    else:
-        print("Kit number not found.")
-creating()
-
-def adventure_time():
-    print("Starting journey.")
-    
-    travel=input("Which direction would you like to go? Used W,A,S,D").lower()
-    shiny=picks()
-    while user_health != 0:
-        if travel==travel:
-            fight=[1,2,3,4,5,6,7,8]
-            steps=random.randint(1,10)
-        if steps not in fight:
-            print("Item found")
-            print(shiny.drops(1, 2, 3))
+        global me
+        g=input("Enter your name: ")
+        me=base_character(g,[],[])
+        sets = {"a": (1000,250), "b":(2000,150), "c":(900,300), "d":(1500,220)}
+        print(sets)
+        basic=input("Enter your chosen set, enter only the letter.").lower()
+        if basic in sets:
+            me.set_add(*sets[basic])
+            user_health = sets[basic][0]
+            user_attack = sets[basic][1]  
         else:
-            print("Enemy present")
-        hom=input("Attack or use item?").lower()
-        count=1
-        if hom == "attack":
-            mhp=opponent_health - user_attack
-            print(f"Minus {user_attack}. Opponent health is {mhp} ")
-            muhp=user_health - opponent_attack
-            print(f"Minus {attack}. Current health is {mhp} ")
-            count=count+1
-        elif hom== "item" or "use item":
-            print(f"Health increased by {item}. Health:{health}")
-            count=count+1
-        #go back to attack
+            print("Set Choice not found.")
 
-    while user_health !=0:
-        print("OK")
-        if count== turns:
-            print("Skill active.")
-            ham=input("Attack or use item?").lower()
-            if ham=="attack":
-                ho=input("Normal attack or skill?").lower()
-            elif ho in "normal attack":
-                print(f"Minus {attack}. Opponent health is {mhp} ")
-                mhp=opponent_health - user_attack
-                print(f"Minus {attack}. Current health is {mhp} ")
-                muhp=user_attack - opponent_attack
-            else:
-                print("nah")
-            #print(f"Health changed to {#}, Attack changed to {#}")
-            #print(f"Minus {attack}. Opponent health is {mhp} ")
-            #mhp=opponent_health - user_attack
-            #print(f"Minus {attack}. Current health is {mhp} ")
-            #muhp=user_health - opponent_attack
+    def creating():
+        global user_health
+        global user_attack
+        global ho
+        more=talents([])
+
+        kits= {"1": "Health increase by 50% of base attack decrease 20%",
+        "2": "Heath decreased by 20% of base, attack increase by 50%", 
+        "3": "Health increase by 100% of base health", 
+        "4": "Health decrease by 50% attack increase by 130%"}
+
+        print(kits)
+        skill_set=input("Choose a skill number:").lower()   
+
+        if skill_set in kits:
+            user_health, user_attack = more.gain(kits[skill_set], turns, user_health, user_attack)
+            return user_health, user_attack
+        else:
+            print("Kit number not found.")
+            return user_health, user_attack
+#run the adventure time class, have the attack class also work.
+
+    creation()
+    adventure_time()
+run()
 
