@@ -4,15 +4,10 @@ from tal import talents
 from picky import picks
 from newOpponentStats import opponent
 from newOpponentStats import boss
-from attack import attk
 
 def run():
     global user_health
     global user_attack
-    global opponent_health
-    global opponent_attack
-    global ho
-    global turns
     global me
     turns=random.randint(2,4)
 
@@ -47,21 +42,22 @@ def run():
         skill_set=input("Choose a skill number:").lower()   
 
         if skill_set in kits:
-            user_health, user_attack, ho = more.gain(kits[skill_set], turns, user_health, user_attack)
-            return user_health, user_attack, ho
+            user_health, user_attack = more.gain(kits[skill_set], turns, user_health, user_attack)
+            return user_health, user_attack
         else:
             print("Kit number not found.")
-            return user_health, user_attack, ho
+            return user_health, user_attack
 
     def hitty():
         global user_health
         global user_attack
         global opponent_health
         global opponent_attack
-        global count
         global hits1
         global hits2
         global HEH
+        hits1=0
+        hits2=0
 
         while opponent_health>0:
             hits1+=1
@@ -89,9 +85,11 @@ def run():
         print("Starting journey.")
         global count
         count=0
+        load=True
 
-        while True:
+        while load==True:
             global HEH
+            global n
             HEH=user_health
             global hits1
             global hits2
@@ -99,16 +97,19 @@ def run():
             hits2=0
             shiny=picks()
             fighty=opponent()
-            #loosey=boss()
 
             while HEH > 0:
                 travel=input("Which direction would you like to go? Use W,A,S,D to move, use stop to end the game.").lower()
                 if travel =="stop":
                     print("Bye.")
+                    load= False
                     break
-                else:
+                elif travel in ["w","a","s","d"]:
                     count+=1 
                     print(f"Turn {count}")
+                else:
+                    print("Error.")
+                    break
 
                 fight=[1,2,3,4]
                 steps=random.randint(1,5)
@@ -133,16 +134,20 @@ def run():
                         if hom == "attack":
                             hitty()
                         elif hom=="item":
-                            print (me.inventory)
-                            user_health=picks.use_potions(user_health)
-                            print(f"Health is now {user_health}")
-#Fix the turn counting
-                    if count%turns==0 and hits1<hits2:
+                            if not me.inventory:
+                                print("No items in inventory")
+                            else:
+                                print(me.inventory)
+                                user_health=picks.use_potions(user_health)
+                                print(f"Health is now {user_health}")
+                                me.inventory.remove(item)
+                
+                    if count%turns==0:
                         print("Skills avaiable.")
                         ham=input("Attack, skill or use item?").lower()
                 
                         if ham =="skill":
-                            user_health, user_attack, ho = creating()
+                            user_health, user_attack = creating()
                             print(f"Stats updated:\nHealth: {user_health}\nAttack: {user_attack}")
                             count+=1
                             print(f"Turn {count}")
@@ -150,25 +155,30 @@ def run():
                         elif ham == "attack":
                             count+=1
                             print(f"Turn {count}")
+                            print("Enemy present")
                             hitty()
                         elif ham =="item":
                             print("Which item do you wanna use?")
                             print (me.inventory)
                             user_health=picks.use_potions(user_health)
                             print(f"Health is now {user_health}")
+
                         else:
                             print("Error")
                             #remove the used item from the inventory
-                        #if count==22:
-                        #   print("Boss Present")
-                        #    final=loosey.boss(-3,n)
-                        #    boss_health=final[0]
-                        #    boss_attack=final[1]
-                            
-                        #    print(f"Boss stats are the following:\nHealth: {boss_health}\nAttack: {boss_attack}")
-                        #    hitty()
-                            #if they win, end game
 
+            if count>10 and count%10==0:
+                print("Boss Present")
+                final=boss(-1,n)
+                boss_stats=final.stats
+                boss_health=boss_stats[0]
+                boss_attack=boss_stats[1]
+                
+                print(f"Boss stats are the following:\nHealth: {boss_health}\nAttack: {boss_attack}")
+                hitty()
+                print("You have reached the end of the game! Rerun to play again.")
+                load= False
+                
     creation()
     adventure_time()
 run()

@@ -7,9 +7,9 @@ class picks():
         self.large=large
         potions={"small": 200, "medium": 500, "large": 800}
         
-        item= random.choice(list(potions.keys()))
-        return f"Item found: {item} potion. Replenishes {potions[item]} health"
-    global user_health
+        item= random.choice(list(potions.keys())).capitalize()
+        return (f"{item} potion")
+    
     def use_potions(user_health):
         hpp=input("Which potion would you like to use? small, medium or large?").lower()
         if hpp=="small":
