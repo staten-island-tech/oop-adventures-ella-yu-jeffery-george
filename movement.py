@@ -3,7 +3,6 @@ import math
 global count
 count=0
 map=["           ###,---,#","            ##| W |#   Turn 00","   #####    ##|ASD|#  /‾‾‾‾‾‾‾\ ","#######     ##'---'#","###         ########","##         ######  #","##   #       ###   #","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","##    ######    ####","##   #######    ####","###########      ###"]
-map[10] == map[10] + "OIDFSJOJDFOSIJOSDIFODSJFODSF"
 playerX=1
 playerY=1
 
@@ -27,9 +26,9 @@ def doTheMovarena(x,y,mapName,count,travel):
     mapName[y] = (mapName[y][:x]+"O"+mapName[y][(x+1):])
     count = count + 1
     #Below: depending on user input of direction, change the variables and print a new map
-    if travel == "exit":
-        print("Bye.")
-        return "exit"
+    if travel == "restart":
+        print("Restarting...")
+        return "restart"
     if travel == "w":
         if y == 0 or mapName[y-1][x] == "#":
             return otherRepeatedCode(map," ⌈ That direction ⌉"," ⌊  goes nowhere. ⌋",x,y,"noooo")

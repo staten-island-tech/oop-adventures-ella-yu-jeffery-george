@@ -4,7 +4,7 @@ import random
 from player import base_character
 from tal import talents
 from picky import picks
-import movement
+from movement import doTheMovarena
 global user_health
 global user_attack
 global turns
@@ -94,13 +94,13 @@ def run():
         global opponent_attack
         global ho
         global map
-        map=["           ###,---,#","            ##| W |#   Turn 00","   #####    ##|ASD|#  /‾‾‾‾‾‾‾\ ","#######     ##'---'#","###         ########","##         ######  #","##   #       ###   #","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","##    ######    ####","##   #######    ####","###########      ###"]
 
         print("Starting journey.")
         global count
         count=0
 
         while True:
+            map=["           ###,---,#","            ##| W |#   Turn 00","   #####    ##|ASD|#  /‾‾‾‾‾‾‾\ ","#######     ##'---'#","###         ########","##         ######  #","##   #       ###   #","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","##    ######    ####","##   #######    ####","###########      ###"]
             global HEH
             HEH=user_health
             global hits1
@@ -110,12 +110,26 @@ def run():
             shiny=picks()
             fighty=opponent()
 
+            playerX=1
+            playerY=1
             while HEH > 0:
-                travel=input("Which direction would you like to go? Use W,A,S,D to move, use stop to end the game.").lower()
-                if travel =="stop":
-                    print("Bye.")
+                travel=input("Which direction would you like to go? Use the keys W,A,S,D to move, and type 'restart' to end your current game.").lower()
+                theMovarenaHasBeenDone = doTheMovarena(playerX,playerY,map,count,travel)
+                if theMovarenaHasBeenDone =="restart":
+                    print("Restarting...")
                     break
-
+                if theMovarenaHasBeenDone != "noooo" and theMovarenaHasBeenDone != "canyoutype??":
+                    if travel == "w":
+                        y = y - 1
+                    elif travel == "s":
+                        y = y + 1
+                    elif travel == "a":
+                        x = x - 1
+                    elif travel == "d":
+                        x = x + 1
+                else:
+                    for i in range(len(map)):
+                        print(map[i])
                 item=[1,2,3,4]
                 fight=[1,2]
                 steps=random.randint(1,5)
