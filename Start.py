@@ -134,8 +134,10 @@ def run():
                         if hom == "attack":
                             hitty()
                         elif hom=="item":
+                            count+=1
                             if not me.inventory:
                                 print("No items in inventory")
+#have it print the opponent stats after item used.
                             else:
                                 print(me.inventory)
                                 user_health=picks.use_potions(user_health)
