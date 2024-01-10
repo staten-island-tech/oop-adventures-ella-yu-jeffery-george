@@ -1,5 +1,5 @@
 class possibility:    
-    def adventure_time():
+    def __init__():
         global user_health
         global user_attack
         global opponent_health
@@ -13,6 +13,11 @@ class possibility:
             HEH=user_health
             global hits1
             global hits2
+            global user_health
+            global user_attack
+            global opponent_health
+            global opponent_attack
+            
             hits1=0
             hits2=0
             shiny=picks()
