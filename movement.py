@@ -26,9 +26,8 @@ def doTheMovarena(x,y,mapName,count,travel):
     mapName[y] = (mapName[y][:x]+"O"+mapName[y][(x+1):])
     count = count + 1
     #Below: depending on user input of direction, change the variables and print a new map
-    if travel == "restart":
-        print("Restarting...")
-        return "restart"
+    if travel == "stop":
+        return "stop"
     if travel == "w":
         if y == 0 or mapName[y-1][x] == "#":
             return otherRepeatedCode(map," ⌈ That direction ⌉"," ⌊  goes nowhere. ⌋",x,y,"noooo")
@@ -63,7 +62,7 @@ def move(x,y,mapName):
     while True:
         travel = input("Input the keys w,a,s,d, or input the word exit: ").lower()
         theMovarenaHasBeenDone = doTheMovarena(x,y,mapName,count,travel)
-        if theMovarenaHasBeenDone == "exit":
+        if theMovarenaHasBeenDone == "stop":
             break
         if theMovarenaHasBeenDone != "noooo" and theMovarenaHasBeenDone != "canyoutype??":
             if travel == "w":

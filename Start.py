@@ -118,13 +118,13 @@ def run():
                     break
                 if theMovarenaHasBeenDone != "noooo" and theMovarenaHasBeenDone != "canyoutype??":
                     if travel == "w":
-                        y = y - 1
+                        playerY = playerY - 1
                     elif travel == "s":
-                        y = y + 1
+                        playerY = playerY + 1
                     elif travel == "a":
-                        x = x - 1
+                        playerX = playerX - 1
                     elif travel == "d":
-                        x = x + 1
+                        playerX = playerX + 1
                     count += 1
                 else:
                     for i in range(len(map)):
