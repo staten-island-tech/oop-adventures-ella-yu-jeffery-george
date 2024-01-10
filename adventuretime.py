@@ -1,5 +1,5 @@
 class journey():
-    def adventure_time(self,open):
+    def __init__(self,open):
         global go_e
         global user_health
         global user_attack
@@ -18,9 +18,15 @@ class journey():
 
                 global HEH
                 global n
-                HEH=user_health
                 global hits1
                 global hits2
+                global user_health
+                global user_attack
+                global opponent_health
+                global opponent_attack
+                global hits1
+                global hits2
+                global shiny
                 hits1=0
                 hits2=0
                 shiny=picks()
