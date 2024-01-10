@@ -1,6 +1,6 @@
 import random
 class base_character:
-    def __init__(self,name, numbers, inventory):
+    def __init__(self,name,numbers, inventory):
         self.name= name
         self.numbers=numbers
         self.inventory=inventory
@@ -44,8 +44,6 @@ Attack: {attack}
             global user_health
             global user_attack
             global HEH
-            
-
             while opponent_health>0:
                 hits1+=1
                 opponent_health-=user_attack

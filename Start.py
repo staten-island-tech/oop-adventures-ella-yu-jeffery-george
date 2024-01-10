@@ -1,7 +1,14 @@
+
+import math
 import random
 from player import base_character
 from tal import talents
 from picky import picks
+from movement import doTheMovarena
+global user_health
+global user_attack
+global turns
+global sets
 from newOpponentStats import opponent
 from newOpponentStats import boss
 
@@ -81,6 +88,7 @@ def run():
         global opponent_health
         global opponent_attack
         global ho
+        global map
 
         print("Starting journey.")
         global count
@@ -88,6 +96,7 @@ def run():
         load=True
 
         while load==True:
+            map=["           ###,---,#","            ##| W |#   Turn 00","   #####    ##|ASD|#  /‾‾‾‾‾‾‾\ ","#######     ##'---'#","###         ########","##         ######  #","##   #       ###   #","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","##    ######    ####","##   #######    ####","###########      ###"]
             global HEH
             global n
             HEH=user_health
@@ -98,35 +107,43 @@ def run():
             shiny=picks()
             fighty=opponent()
 
+            playerX=1
+            playerY=1
             while HEH > 0:
-                travel=input("Which direction would you like to go? Use W,A,S,D to move, use stop to end the game.").lower()
-                if travel =="stop":
-                    print("Bye.")
-                    load= False
+                travel=input("Which direction would you like to go? Use the keys W,A,S,D to move, and type 'stop' to end your current game.").lower()
+                theMovarenaHasBeenDone = doTheMovarena(playerX,playerY,map,count,travel)
+                if theMovarenaHasBeenDone =="stop":
+                    print("Game finished. Run to play again.")
+                    load = False
                     break
-                elif travel in ["w","a","s","d"]:
-                    count+=1 
-                    print(f"Turn {count}")
+                if theMovarenaHasBeenDone != "noooo" and theMovarenaHasBeenDone != "canyoutype??":
+                    if travel == "w":
+                        y = y - 1
+                    elif travel == "s":
+                        y = y + 1
+                    elif travel == "a":
+                        x = x - 1
+                    elif travel == "d":
+                        x = x + 1
+                    count += 1
                 else:
-                    print("Error.")
-                    break
-
-                fight=[1,2,3,4]
+                    for i in range(len(map)):
+                        print(map[i])
                 steps=random.randint(1,5)
                 
-                if steps not in fight:
-                    print("Item found")
+                if steps==5:
+                    print("\n -{ Item found! }- \n")
                     item=shiny.drops(1, 2, 3)
                     me.add_item(item)
-                else:
-                    print("Enemy present")
+                if steps in [1,2,3]:
+                    print("\n -{ Enemy present. }- \n")
                     n = random.randint(1,60)*5
                     stats= fighty.createNewOpponent(-5,n)
                     opponent_health=stats[0]
                     opponent_attack=stats[1]
-                    print(f"""Opponent has the following stats,
-            Health:{opponent_health} 
-            Attack:{opponent_attack}""")
+                    print(f"""Opponent has the following stats: 
+                    Health:{opponent_health} 
+                    Attack:{opponent_attack}""")
             
                     while opponent_health > 0:
                         hom=input("Attack or use item?").lower()
@@ -182,4 +199,3 @@ def run():
     creation()
     adventure_time()
 run()
-
