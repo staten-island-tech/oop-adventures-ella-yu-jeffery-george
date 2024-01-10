@@ -1,6 +1,6 @@
 import random
 class base_character:
-    def __init__(self,name, numbers, inventory):
+    def __init__(self,name,numbers, inventory):
         self.name= name
         self.numbers=numbers
         self.inventory=inventory

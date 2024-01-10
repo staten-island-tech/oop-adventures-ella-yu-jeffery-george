@@ -4,6 +4,7 @@ from tal import talents
 from picky import picks
 from newOpponentStats import opponent
 from newOpponentStats import boss
+from attack import attck
 
 def run():
     global user_health
@@ -181,6 +182,8 @@ def run():
                 print("You have reached the end of the game! Rerun to play again.")
                 load= False
                 
+#run the adventure time class, have the attack class also work.
+
     creation()
     adventure_time()
 run()
