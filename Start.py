@@ -4,7 +4,7 @@ import random
 from player import base_character
 from tal import talents
 from picky import picks
-from movement import doTheMovarena
+from movement import movingStuff
 global user_health
 global user_attack
 global turns
@@ -94,9 +94,8 @@ def run():
         global count
         count=0
         load=True
-
+        map=["           ###,---,#"," O          ##| W |#   Turn 00","   #####    ##|ASD|#  /‾‾‾‾‾‾‾\ ","#######     ##'---'#","###         ########","##         ######  #","##   #       ###   #","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","##    ######    ####","##   #######    ####","###########      ###"]
         while load==True:
-            map=["           ###,---,#","            ##| W |#   Turn 00","   #####    ##|ASD|#  /‾‾‾‾‾‾‾\ ","#######     ##'---'#","###         ########","##         ######  #","##   #       ###   #","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","##    ######    ####","##   #######    ####","###########      ###"]
             global HEH
             global n
             HEH=user_health
@@ -111,7 +110,7 @@ def run():
             playerY=1
             while HEH > 0:
                 travel=input("Which direction would you like to go? Use the keys W,A,S,D to move, and type 'stop' to end your current game.").lower()
-                theMovarenaHasBeenDone = doTheMovarena(playerX,playerY,map,count,travel)
+                theMovarenaHasBeenDone = movingStuff.doTheMovarena(playerX,playerY,map,count,travel)
                 if theMovarenaHasBeenDone =="stop":
                     print("Game finished. Run to play again.")
                     load = False

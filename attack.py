@@ -20,17 +20,16 @@ class attk:
             if HEH <=0:
                 break 
 
-        if hits1<hits2:
+        if hits1<=hits2:
             print("Battle results\nSuccess! Next round!")
-        elif hits1>hits2:
-            print("Battle results\nYou loose! Try again.")
         else:
-            print("Battle results\nDraw!")
-            k= input("Would you like to flee or fight?").lower()
-            if k=="flee":
-                m=["Flee successful", "Flee failed"]
-                b=print(random.choice(m))
-                if b=="Flee successful":
-                    print("Continue with the movement.")
-                else:
-                    print("Fight occurs again")
+            print("Battle results\nYou loose! Try again.")
+            map[playerY] = (map[playerY][:playerX]+" "+map[playerY][(playerX+1):])
+            if travel == "w":
+                    playerY = playerY + 1
+            elif travel == "s":
+                    playerY = playerY - 1
+            elif travel == "a":
+                    playerX = playerX + 1
+            elif travel == "d":
+                    playerX = playerX - 1
