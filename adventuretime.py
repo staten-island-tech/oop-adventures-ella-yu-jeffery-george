@@ -1,13 +1,12 @@
 class journey():
     def __init__(self,open):
-        global go_e
         global user_health
         global user_attack
         global opponent_health
         global opponent_attack
-        global ho
-        self.open=open
         
+        self.open=open
+
         if open=="yes":
             print("Starting journey.")
             global count
@@ -15,7 +14,6 @@ class journey():
             load=True
 
             while load==True:
-
                 global HEH
                 global n
                 global hits1
@@ -96,10 +94,10 @@ class journey():
                                 print (me.inventory)
                                 user_health=picks.use_potions(user_health)
                                 print(f"Health is now {user_health}")
+                                self.inventory.remove(item)
 
                             else:
                                 print("Error")
-                                #remove the used item from the inventory
 
                 if count>10 and count%10==0:
                     print("Boss Present")
