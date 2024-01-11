@@ -1,5 +1,5 @@
 class possibility:    
-    def __init__():
+    def __init__(self, open):
         global user_health
         global user_attack
         global opponent_health
