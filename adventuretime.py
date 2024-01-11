@@ -1,3 +1,7 @@
+from picky import picks
+from newOpponentStats import opponent
+
+
 class journey():
     def __init__(self,open):
         global user_health
@@ -29,6 +33,7 @@ class journey():
                 hits2=0
                 shiny=picks()
                 fighty=opponent()
+                HEH=user_health
 
                 while HEH > 0:
                     travel=input("Which direction would you like to go? Use W,A,S,D to move, use stop to end the game.").lower()
@@ -94,7 +99,7 @@ class journey():
                                 print (me.inventory)
                                 user_health=picks.use_potions(user_health)
                                 print(f"Health is now {user_health}")
-                                self.inventory.remove(item)
+                                
 
                             else:
                                 print("Error")

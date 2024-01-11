@@ -11,6 +11,7 @@ class picks():
         return (f"{item} potion")
     
     def use_potions(user_health):
+        self.inventory.remove(item)
         hpp=input("Which potion would you like to use? small, medium or large?").lower()
         if hpp=="small":
             user_health+=200
