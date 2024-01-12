@@ -27,7 +27,7 @@ class movingStuff:
         mapName[y] = (mapName[y][:x]+"O"+mapName[y][(x+1):])
         count = count + 1
         #Below: depending on user input of direction, change the variables and print a new map
-        if travel == "exit":
+        if travel == "stop":
           return "stop"
         elif travel == "w":
             if y == 0 or mapName[y-1][x] == "#":

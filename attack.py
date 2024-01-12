@@ -8,6 +8,10 @@ class attk:
         global hits1
         global hits2
         global HEH
+        global playerY
+        global playerX
+        global theMap
+        global travel
 
         while opponent_health>0:
             hits1+=1
@@ -22,14 +26,7 @@ class attk:
 
         if hits1<=hits2:
             print("Battle results\nSuccess! Next round!")
+            return "win!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         else:
             print("Battle results\nYou loose! Try again.")
-            map[playerY] = (map[playerY][:playerX]+" "+map[playerY][(playerX+1):])
-            if travel == "w":
-                    playerY = playerY + 1
-            elif travel == "s":
-                    playerY = playerY - 1
-            elif travel == "a":
-                    playerX = playerX + 1
-            elif travel == "d":
-                    playerX = playerX - 1
+            return "lose"

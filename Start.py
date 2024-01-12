@@ -94,7 +94,9 @@ def run():
         global count
         count=0
         load=True
-        map=["           ###,---,#"," O          ##| W |#   Turn 00","   #####    ##|ASD|#  /‾‾‾‾‾‾‾\ ","#######     ##'---'#","###         ########","##         ######  #","##   #       ###   #","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","##    ######    ####","##   #######    ####","###########      ###"]
+        playerX=1
+        playerY=1
+        theMap=["           ###,---,#"," O          ##| W |#   Turn 00","   #####    ##|ASD|#  /‾‾‾‾‾‾‾\ ","#######     ##'---'#","###         ########","##         ######  #","##   #       ###   #","#   ###        #  ##","#  #####   #      ##","#    ###  ##     ###","##    ######    ####","##   #######    ####","###########      ###"]
         while load==True:
             global HEH
             global n
@@ -105,12 +107,9 @@ def run():
             hits2=0
             shiny=picks()
             fighty=opponent()
-
-            playerX=1
-            playerY=1
             while HEH > 0:
                 travel=input("Which direction would you like to go? Use the keys W,A,S,D to move, and type 'stop' to end your current game.").lower()
-                theMovarenaHasBeenDone = movingStuff.doTheMovarena(playerX,playerY,map,count,travel)
+                theMovarenaHasBeenDone = movingStuff.doTheMovarena(playerX,playerY,theMap,count,travel)
                 if theMovarenaHasBeenDone =="stop":
                     print("Game finished. Run to play again.")
                     load = False
@@ -125,10 +124,10 @@ def run():
                     elif travel == "d":
                         playerX = playerX + 1
                     count += 1
+                    steps=random.randint(1,5)
                 else:
-                    for i in range(len(map)):
-                        print(map[i])
-                steps=random.randint(1,5)
+                    for i in range(len(theMap)):
+                        print(theMap[i])
                 
                 if steps==5:
                     print("\n -{ Item found! }- \n")
@@ -148,7 +147,16 @@ def run():
                         hom=input("Attack or use item?").lower()
 
                         if hom == "attack":
-                            hitty()
+                            if hitty() == "lose":
+                                theMap[playerY] = (map[playerY][:playerX]+" "+theMap[playerY][(playerX+1):])
+                                if travel == "w":
+                                    playerY = playerY + 1
+                                elif travel == "s":
+                                    playerY = playerY - 1
+                                elif travel == "a":
+                                    playerX = playerX + 1
+                                elif travel == "d":
+                                    playerX = playerX - 1
                         elif hom=="item":
                             if not me.inventory:
                                 print("No items in inventory")
@@ -167,12 +175,30 @@ def run():
                             print(f"Stats updated:\nHealth: {user_health}\nAttack: {user_attack}")
                             count+=1
                             print(f"Turn {count}")
-                            hitty()
+                            if hitty() == "lose":
+                                theMap[playerY] = (map[playerY][:playerX]+" "+theMap[playerY][(playerX+1):])
+                                if travel == "w":
+                                    playerY = playerY + 1
+                                elif travel == "s":
+                                    playerY = playerY - 1
+                                elif travel == "a":
+                                    playerX = playerX + 1
+                                elif travel == "d":
+                                    playerX = playerX - 1
                         elif ham == "attack":
                             count+=1
                             print(f"Turn {count}")
                             print("Enemy present")
-                            hitty()
+                            if hitty() == "lose":
+                                theMap[playerY] = (map[playerY][:playerX]+" "+theMap[playerY][(playerX+1):])
+                                if travel == "w":
+                                    playerY = playerY + 1
+                                elif travel == "s":
+                                    playerY = playerY - 1
+                                elif travel == "a":
+                                    playerX = playerX + 1
+                                elif travel == "d":
+                                    playerX = playerX - 1
                         elif ham =="item":
                             print("Which item do you wanna use?")
                             print (me.inventory)
@@ -191,7 +217,10 @@ def run():
                 boss_attack=boss_stats[1]
                 
                 print(f"Boss stats are the following:\nHealth: {boss_health}\nAttack: {boss_attack}")
-                hitty()
+                if hitty() == "lose":
+                    print("you died???? bro this is the END how did you get this far just to die? anyway gg")
+                else:
+                    print("LETS GO the boss is dead B) gg")
                 print("You have reached the end of the game! Rerun to play again.")
                 load= False
                 
