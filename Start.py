@@ -3,7 +3,6 @@ from player import base_character
 from tal import talents
 from picky import picks
 from newOpponentStats import opponent
-from newOpponentStats import boss
 from attack import attk
 from adventuretime import journey
 
@@ -190,6 +189,5 @@ def run():
 #run the adventure time class, have the attack class also work.
 
     creation()
-    adventure_time()
 run()
 

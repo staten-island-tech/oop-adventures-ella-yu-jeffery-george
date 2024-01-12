@@ -38,6 +38,9 @@ Attack: {attack}
     #
     #        return user_health
         
+        
+        
+        
         def hitty(self, opponent_health,opponent_attack):
             hits1=0
             hits2=0
@@ -61,3 +64,19 @@ Attack: {attack}
                 print("Battle results\nSuccess! Next round!")
             else:
                 print("Battle results\nYou loose! Try again.")
+    
+    #def creation():
+    #    global user_health
+    #    global user_attack
+    #    global me
+    #    g=input("Enter your name: ")
+    #    me=base_character(g,[],[])
+    #    sets = {"a": (1000,250), "b":(2000,150), "c":(900,300), "d":(1500,220)}
+    #    print(sets)
+    #    basic=input("Enter your chosen set, enter only the letter.").lower()
+    #    if basic in sets:
+    #        me.set_add(*sets[basic])
+    #        user_health = sets[basic][0]
+    #        user_attack = sets[basic][1]  
+    #    else:
+    #        print("Set Choice not found.")

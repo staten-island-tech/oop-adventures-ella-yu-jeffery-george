@@ -1,6 +1,7 @@
-from picky import picks
-from newOpponentStats import opponent
-
+from player import base_character
+from attack import attk
+from picky import picks 
+#add back opponent and whatever back
 
 class journey():
     def __init__(self,open):
@@ -20,14 +21,10 @@ class journey():
             while load==True:
                 global HEH
                 global n
-                global hits1
-                global hits2
                 global user_health
                 global user_attack
                 global opponent_health
                 global opponent_attack
-                global hits1
-                global hits2
                 global shiny
                 hits1=0
                 hits2=0
@@ -115,5 +112,5 @@ class journey():
                     hitty()
                     print("You have reached the end of the game! Rerun to play again.")
                     load= False
-        else:
-            print("Rerun to play.")
+            else:
+                print("Rerun to play.")
