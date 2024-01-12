@@ -3,14 +3,16 @@ from player import base_character
 from tal import talents
 from picky import picks
 from newOpponentStats import opponent
-from newOpponentStats import boss
-from attack import attck
+from attack import attk
+from adventuretime import journey
 
 def run():
     global user_health
     global user_attack
     global me
     turns=random.randint(2,4)
+    input("Would you like to play? Yes or no?").lower()
+    user_begin=journey(open)
 
     def creation():
         global user_health
@@ -51,6 +53,5 @@ def run():
 #run the adventure time class, have the attack class also work.
 
     creation()
-    adventure_time()
 run()
 

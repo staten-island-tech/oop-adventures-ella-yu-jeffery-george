@@ -10,34 +10,18 @@ class base_character:
 Health: {health} 
 Attack: {attack}
 """)    
-     
-    def hitty():
-        def at(self,hits1, hits2):
-            super().__init__(self,numbers)
-            self.hits1=hits1
-            self.hits2=hits2
-            global user_health
-            global user_attack
-            global opponent_health
-            global opponent_attack
-            global hits1
-            global hits2
-            global HEH
-            hits1=0
-            hits2=0
-
-            while opponent_health>0:
-                hits1+=1
-                opponent_health-=user_attack
-                if opponent_health <= 0:
-                    break 
-            while HEH>0:
-                hits2+=1
-                HEH-=opponent_attack
-                if HEH <=0:
-                    break 
-
-            if hits1<hits2:
-                print("Battle results\nSuccess! Next round!")
-            else:
-                print("Battle results\nYou loose! Try again.")
+    def creation():
+        global user_health
+        global user_attack
+        global me
+        g=input("Enter your name: ")
+        me=base_character(g,[],[])
+        sets = {"a": (1000,250), "b":(2000,150), "c":(900,300), "d":(1500,220)}
+        print(sets)
+        basic=input("Enter your chosen set, enter only the letter.").lower()
+        if basic in sets:
+            me.set_add(*sets[basic])
+            user_health = sets[basic][0]
+            user_attack = sets[basic][1]  
+        else:
+            print("Set Choice not found.")

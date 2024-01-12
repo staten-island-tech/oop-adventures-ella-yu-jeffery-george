@@ -7,8 +7,6 @@ class attk():
         global user_attack
         global opponent_health
         global opponent_attack
-        global hits1
-        global hits2
         global HEH
         hits1=0
         hits2=0
