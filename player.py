@@ -10,6 +10,7 @@ class base_character:
 Health: {health} 
 Attack: {attack}
 """)    
+<<<<<<< Updated upstream
     def creation():
         global user_health
         global user_attack
@@ -25,3 +26,29 @@ Attack: {attack}
             user_attack = sets[basic][1]  
         else:
             print("Set Choice not found.")
+=======
+     
+    def hitty(self, opponent_health,opponent_attack):
+            hits1=0
+            hits2=0
+            global user_health
+            global user_attack
+            global HEH
+            
+
+            while opponent_health>0:
+                hits1+=1
+                opponent_health-=user_attack
+                if opponent_health <= 0:
+                    break 
+            while HEH>0:
+                hits2+=1
+                HEH-=opponent_attack
+                if HEH <=0:
+                    break 
+
+            if hits1<hits2:
+                print("Battle results\nSuccess! Next round!")
+            else:
+                print("Battle results\nYou loose! Try again.")
+>>>>>>> Stashed changes
