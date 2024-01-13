@@ -1,8 +1,14 @@
+<<<<<<< Updated upstream
 class attk():
     def hitty(self,hits1,hits2):
         self.hits1=hits1
         self.hits2=hits2
         
+=======
+class attk:
+    import random    
+    def hitty():
+>>>>>>> Stashed changes
         global user_health
         global user_attack
         global opponent_health
