@@ -1,16 +1,12 @@
 class attk():
-    global hits1
-    global hits2
     def hitty(self,hits1,hits2):
         self.hits1=hits1
         self.hits2=hits2
-        
         global user_health
         global user_attack
         global opponent_health
         global opponent_attack
         global HEH
-
         hits1=0
         hits2=0
 

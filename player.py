@@ -3,6 +3,7 @@ class base_character:
         self.name= name
         self.numbers=numbers
         self.inventory=inventory
+
     def set_add(self,health, attack):
         self.numbers.append(health)
         self.numbers.append(attack)
@@ -10,11 +11,11 @@ class base_character:
 Health: {health} 
 Attack: {attack}
 """)    
-<<<<<<< Updated upstream
-    def creation():
+    def creation(self):
         global user_health
         global user_attack
         global me
+
         g=input("Enter your name: ")
         me=base_character(g,[],[])
         sets = {"a": (1000,250), "b":(2000,150), "c":(900,300), "d":(1500,220)}
@@ -23,32 +24,7 @@ Attack: {attack}
         if basic in sets:
             me.set_add(*sets[basic])
             user_health = sets[basic][0]
-            user_attack = sets[basic][1]  
+            user_attack = sets[basic][1]
+            
         else:
             print("Set Choice not found.")
-=======
-     
-    def hitty(self, opponent_health,opponent_attack):
-            hits1=0
-            hits2=0
-            global user_health
-            global user_attack
-            global HEH
-            
-
-            while opponent_health>0:
-                hits1+=1
-                opponent_health-=user_attack
-                if opponent_health <= 0:
-                    break 
-            while HEH>0:
-                hits2+=1
-                HEH-=opponent_attack
-                if HEH <=0:
-                    break 
-
-            if hits1<hits2:
-                print("Battle results\nSuccess! Next round!")
-            else:
-                print("Battle results\nYou loose! Try again.")
->>>>>>> Stashed changes

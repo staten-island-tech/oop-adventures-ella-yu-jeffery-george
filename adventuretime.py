@@ -1,6 +1,8 @@
+import random
 from player import base_character
-from attack import attk
-from picky import picks 
+from tal import talents
+from picky import picks
+from newOpponentStats import opponent, boss
 
 class journey():
     def __init__(self,open):
@@ -112,5 +114,5 @@ class journey():
                     hitty()
                     print("You have reached the end of the game! Rerun to play again.")
                     load= False
-            else:
-                print("Rerun to play.")
+        else:
+            print("Rerun to play.")

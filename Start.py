@@ -2,7 +2,7 @@ import random
 from player import base_character
 from tal import talents
 from picky import picks
-from newOpponentStats import opponent
+from newOpponentStats import opponent, boss
 from attack import attk
 from adventuretime import journey
 
@@ -11,9 +11,9 @@ def run():
     global user_attack
     global me
     turns=random.randint(2,4)
-    input("Would you like to play? Yes or no?").lower()
-    user_begin=journey(open)
-
+    go_e=input("Would you like to play? Yes or no?").lower()
+    begin=journey(go_e)
+    print(begin)
     def creation():
         global user_health
         global user_attack
