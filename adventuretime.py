@@ -65,39 +65,25 @@ class possibility:
                         elif hom=="item":
                             if not me.inventory:
                                 print("No items in inventory")
-                            else:
+                            elif item in inventory:
                                 print (me.inventory)
                                 user_health=self.picks.use_potions(user_health)
                                 print(f"Health is now {user_health}")
 
-                    if count%self.turns==0:
-                        print("Skills avaiable.")
-                        ham=input("Attack, skill or use item?").lower()
-                
-                        if ham =="skill":
-                            user_health, user_attack, ho = self.creating()
-                            print(f"Stats updated:\nHealth: {user_health}\nAttack: {user_attack}")
-                            count+=1
-                            print(f"Turn {count}")
-                            self.hitty()
-                        elif ham == "attack":
-                            count+=1
-                            print(f"Turn {count}")
-                            self.hitty()
-                        else:
-                            print("Which item do you wanna use?")
-                            print (me.inventory)
-                            user_health=self.picks.use_potions(user_health)
-                            print(f"Health is now {user_health}")
-                            self.inventory.remove(item)
-        if count>10 and count%10==0:
-            print("Boss Present")
-            final=self.boss(-1,n)
-            boss_stats=final.stats
-            boss_health=boss_stats[0]
-            boss_attack=boss_stats[1]
-            
-            print(f"Boss stats are the following:\nHealth: {boss_health}\nAttack: {boss_attack}")
-            self.hitty()
-            print("You have reached the end of the game! Rerun to play again.")
-            load= False
+                            else:
+                                print("Error")
+                                #remove the used item from the inventory
+
+                if count>10 and count%10==0:
+                    print("Boss Present")
+                    final=boss(-1,n)
+                    boss_stats=final.stats
+                    boss_health=boss_stats[0]
+                    boss_attack=boss_stats[1]
+                    
+                    print(f"Boss stats are the following:\nHealth: {boss_health}\nAttack: {boss_attack}")
+                    hitty()
+                    print("You have reached the end of the game! Rerun to play again.")
+                    load= False
+        else:
+            print("Rerun to play.")

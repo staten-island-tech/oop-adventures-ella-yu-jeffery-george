@@ -2,7 +2,7 @@ import random
 from player import base_character
 from tal import talents
 from picky import picks
-from newOpponentStats import opponent
+from newOpponentStats import opponent, boss
 from attack import attk
 from adventuretime import journey
 
