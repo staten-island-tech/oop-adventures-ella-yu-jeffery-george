@@ -5,13 +5,14 @@ class picks():
         self.small=small
         self.medium=medium
         self.large=large
+        global potions
         potions={"small": 200, "medium": 500, "large": 800}
-        
-        item= random.choice(list(potions.keys())).capitalize()
+        global item
+        item= random.choice(list(potions.keys())).lower()
         return (f"{item} potion")
     
-    def use_potions(user_health):
-        self.inventory.remove(item)
+    def use_potions(self, user_health, inventory):
+        self.inventory=inventory
         hpp=input("Which potion would you like to use? small, medium or large?").lower()
         if hpp=="small":
             user_health+=200
@@ -19,7 +20,8 @@ class picks():
             user_health+=500
         elif hpp==("large"):
             user_health+=800
-
+        else:
+            print("Invalid choice.")
         return user_health
     
     
