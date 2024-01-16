@@ -106,4 +106,3 @@ class journey:
                             load= False
                 else:
                     print("Rerun to play.")
-print("K")
