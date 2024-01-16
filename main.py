@@ -58,5 +58,3 @@ def run():
 
     j()
 run()
-
-print("O")
